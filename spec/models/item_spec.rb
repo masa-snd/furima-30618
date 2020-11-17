@@ -44,27 +44,27 @@ RSpec.describe Item, type: :model do
       it "categoryが---のままでは出品できない" do
         @item.category_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Category must be other than 1")
+        expect(@item.errors.full_messages).to include("Category カテゴリーを選択してください")
       end     
       it "conditionが---のままでは出品できない" do
         @item.condition_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Condition must be other than 1")
+        expect(@item.errors.full_messages).to include("Condition 商品の状態を選択してください")
       end     
       it "delivery_feeが---のままでは出品できない" do
         @item.delivery_fee_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Delivery fee must be other than 1")
+        expect(@item.errors.full_messages).to include("Delivery fee 配送料の負担を選択してください")
       end     
       it "prefectureが---のままでは出品できない" do
         @item.prefecture_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Prefecture must be other than 1")
+        expect(@item.errors.full_messages).to include("Prefecture 発送元の地域を選択してください")
       end     
       it "delivery_dayが---のままでは出品できない" do
         @item.delivery_day_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Delivery day must be other than 1")
+        expect(@item.errors.full_messages).to include("Delivery day 発送までの日数を選択してください")
       end     
       it "priceが空では出品できない" do
         @item.price = ""

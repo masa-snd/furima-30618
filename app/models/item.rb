@@ -19,12 +19,31 @@ class Item < ApplicationRecord
                 greater_than_or_equal_to: 300,
                 less_than_or_equal_to: 9_999_999,
               }
-    with_options numericality: { other_than: 1 } do
-      validates :category_id
-      validates :condition_id
-      validates :delivery_fee_id
-      validates :prefecture_id
-      validates :delivery_day_id
-    end
   end
+
+  validates :category_id,
+              numericality: {
+                other_than: 1,
+                message: 'カテゴリーを選択してください'
+              }
+  validates :condition_id,
+              numericality: {
+                other_than: 1,
+                message: '商品の状態を選択してください'
+              }
+  validates :delivery_fee_id,
+              numericality: {
+                other_than: 1,
+                message: '配送料の負担を選択してください'
+              }
+  validates :prefecture_id,
+              numericality: {
+                other_than: 1,
+                message: '発送元の地域を選択してください'
+              }
+  validates :delivery_day_id,
+              numericality: {
+                other_than: 1,
+                message: '発送までの日数を選択してください'
+              }
 end
