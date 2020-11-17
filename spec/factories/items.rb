@@ -8,6 +8,7 @@ FactoryBot.define do
     prefecture           {  }
     delivery_day         {  }
     price                { Faker::Number.between(from: 300, to: 9999999) }
+    association :user
 
 
   end
