@@ -4,7 +4,12 @@ window.addEventListener('load', () => {
     const inputValue = priceInput.value;
     const addTaxPrice = document.getElementById("add-tax-price");
     const addSalasProfit = document.getElementById("profit");
-    addTaxPrice.innerHTML = Math.floor(inputValue * 0.1)
-    addSalasProfit.innerHTML = inputValue - Math.floor(inputValue * 0.1)
+    if (inputValue >= 300 && inputValue <= 9999999) {
+      addTaxPrice.innerHTML = Math.floor(inputValue * 0.1)
+      addSalasProfit.innerHTML = inputValue - Math.floor(inputValue * 0.1)
+    } else {
+      addTaxPrice.innerHTML = NaN
+      addSalasProfit.innerHTML = NaN
+    }
  })
 });
