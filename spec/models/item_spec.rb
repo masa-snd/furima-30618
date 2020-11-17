@@ -66,6 +66,21 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include("Delivery day must be other than 1")
       end     
+      it "priceが空では出品できない" do
+        @item.price = ""
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Price can't be blank")
+      end  
+      it "priceの範囲が、¥299以下では出品できない" do
+        @item.price = 299
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Price must be greater than or equal to 300")
+      end  
+      it "priceの範囲が、¥10,000,000以上では出品できない" do
+        @item.price = 10000000
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Price must be less than or equal to 9999999")
+      end  
     end
   end
 end
