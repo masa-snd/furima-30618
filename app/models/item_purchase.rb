@@ -1,4 +1,4 @@
-class UserPurchase
+class ItemPurchase
   include ActiveModel::Model
   attr_accessor :postal_code, :prefecture, :municipality, :house_number, :building_name, :phone_number, :purchase, :item, :user
 
