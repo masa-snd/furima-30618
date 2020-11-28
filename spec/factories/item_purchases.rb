@@ -7,7 +7,7 @@ FactoryBot.define do
     house_number { Gimei.address.town.kanji + '１−１−１' }
     building_name { "ハイツ１０１" }
     phone_number { Faker::Number.leading_zero_number(digits: 11) }
-    association :user
-    association :item
+    user_id { 1 }
+    item_id { 1 }
   end
 end
