@@ -25,12 +25,12 @@ RSpec.describe ItemPurchase, type: :model do
       it 'postal_codeに(-)が含まれてないと購入できない' do
         @item_purchase.postal_code = '1111111'
         @item_purchase.valid?
-        expect(@item_purchase.errors.full_messages).to include("Postal code is invalid. Include hyphen(-) or input half-width characters.")
+        expect(@item_purchase.errors.full_messages).to include('Postal code is invalid. Include hyphen(-) or input half-width characters.')
       end
       it 'postal_codeが全角数字では購入できない' do
         @item_purchase.postal_code = '１１１−１１１１'
         @item_purchase.valid?
-        expect(@item_purchase.errors.full_messages).to include("Postal code is invalid. Include hyphen(-) or input half-width characters.")
+        expect(@item_purchase.errors.full_messages).to include('Postal code is invalid. Include hyphen(-) or input half-width characters.')
       end
       it 'prefectureが---のままでは購入できない' do
         @item_purchase.prefecture_id = 1
@@ -45,7 +45,7 @@ RSpec.describe ItemPurchase, type: :model do
       it 'municipalityに半角英数が含まれていると購入できない' do
         @item_purchase.municipality = 'abc123'
         @item_purchase.valid?
-        expect(@item_purchase.errors.full_messages).to include("Municipality is invalid. Input full-width characters.")
+        expect(@item_purchase.errors.full_messages).to include('Municipality is invalid. Input full-width characters.')
       end
       it 'house_numberが空では購入できない' do
         @item_purchase.house_number = ''
@@ -55,7 +55,7 @@ RSpec.describe ItemPurchase, type: :model do
       it 'house_numberに英数が含まれていると半角では購入できない' do
         @item_purchase.house_number = 'a1-1-1'
         @item_purchase.valid?
-        expect(@item_purchase.errors.full_messages).to include("House number is invalid. Input full-width characters.")
+        expect(@item_purchase.errors.full_messages).to include('House number is invalid. Input full-width characters.')
       end
       it 'phone_numberが空では購入できない' do
         @item_purchase.phone_number = ''
@@ -65,12 +65,12 @@ RSpec.describe ItemPurchase, type: :model do
       it 'phone_numberが全角数字では購入できない' do
         @item_purchase.phone_number = '０９０１２３４５６７８'
         @item_purchase.valid?
-        expect(@item_purchase.errors.full_messages).to include("Phone number is invalid. Input only number or input half-width characters.")
+        expect(@item_purchase.errors.full_messages).to include('Phone number is invalid. Input only number or input half-width characters.')
       end
       it 'phone_numberに(-)が含まれていると購入できない' do
         @item_purchase.phone_number = '0120111-111'
         @item_purchase.valid?
-        expect(@item_purchase.errors.full_messages).to include("Phone number is invalid. Input only number or input half-width characters.")
+        expect(@item_purchase.errors.full_messages).to include('Phone number is invalid. Input only number or input half-width characters.')
       end
       it 'tokenが空では購入できない' do
         @item_purchase.token = ''
