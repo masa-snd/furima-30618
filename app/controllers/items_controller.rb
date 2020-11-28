@@ -20,6 +20,7 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @purchase = @item.purchase
   end
 
   def destroy
