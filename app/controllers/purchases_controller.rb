@@ -35,7 +35,10 @@ class PurchasesController < ApplicationController
 
   def move_to_root_path
     @item = Item.find(params[:item_id])
+    @purchase = @item.purchase
     if @item.user_id == current_user.id
+      redirect_to root_path
+    elsif @purchase.present?
       redirect_to root_path
     end
   end
